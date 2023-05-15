@@ -1,0 +1,21 @@
+<div class="box-shadow">
+    <div class="loader" *ngIf="loader.isLoading$ | async">
+        <img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" width="30">
+    </div>
+    <h2 class="font-weight-bold text-center">
+        <span>Search</span> Results:
+        <span class="note" *ngIf="!searchedValue">search in the above box to see something</span>
+    </h2>
+    <ul class="list">
+        <li *ngFor="let github of searchedValue">
+            <span class="d-block small-title">
+                <i class="bi bi-bookmark-star-fill"></i>
+                <a href="{{github.url}}" target="_blank">{{github.full_name}}</a>
+            </span>
+            <span class="d-block descrp">{{github.description}}</span>
+            <div class="tags">
+                <span *ngFor="let tags of github.topics">{{tags}}</span>
+            </div>
+        </li>
+    </ul>
+</div>

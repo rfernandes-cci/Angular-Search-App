@@ -1,0 +1,22 @@
+<div class="box-shadow">
+    <div class="loader" *ngIf="loader.isLoading$ | async">
+        <img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" width="30">
+    </div>
+    <h2 class="font-weight-bold text-center">
+        <span>Search</span> Results:
+        <span class="note" *ngIf="!searchedValue">search in the above box to see something</span>
+    </h2>
+    <ul class="list">
+        <li *ngFor="let stackoverflow of searchedValue">
+            <span class="count">
+                <i class="bi bi-check"></i>
+                {{stackoverflow.answer_count}} answers</span>
+            <a href="{{stackoverflow.link}}" target="_blank" class="stack-link d-block">{{stackoverflow.title}}</a>
+            <div class="tags">
+                <span *ngFor="let tags of stackoverflow.tags">
+                    {{tags}}
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>

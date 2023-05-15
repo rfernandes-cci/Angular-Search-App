@@ -1,0 +1,191 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+  background: #2e2e2e;
+}
+
+.img-banner {
+  background: url(https://cdn.pixabay.com/photo/2023/03/16/08/42/camping-7856198_960_720.jpg);
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgb(17 25 67 / 32%), rgb(57 57 57 / 72%));
+    content: "";
+  }
+
+  .container {
+    min-height: 440px;
+  }
+
+  input {
+    height: 56px;
+    padding: 0 0 0 55px;
+    border-radius: 56px !important;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 23px;
+    top: 16px;
+    z-index: 4;
+    color: #656f79;
+  }
+}
+
+#myTab {
+  margin: 0;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  border-radius: 2px 2px 0 0;
+
+  li {
+    background: transparent;
+    background-image: linear-gradient(
+      90deg,
+      transparent 70%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 20%;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+
+    a {
+      width: 100%;
+      height: 100%;
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      color: #686868;
+      backface-visibility: hidden;
+      font-weight: 500;
+      border: 0;
+      text-transform: uppercase;
+
+      &.active {
+        background-color: white;
+        z-index: 0;
+        border-right: 0;
+        border-left: 0;
+        height: 110px;
+        bottom: 0px;
+        overflow: hidden;
+        width: 100%;
+        opacity: 1;
+
+        &:before {
+          background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          content: "";
+          position: absolute;
+          z-index: 2;
+          width: 100%;
+          height: 5px;
+          top: -15px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.box-shadow {
+  background-color: white;
+  position: relative;
+  padding: 40px 60px;
+  min-height: 350px;
+  max-height: 440px;
+  overflow-y: auto;
+  position: relative;
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  h2 {
+    margin: 30px 0;
+    color: #5e5e5e;
+  }
+}
+
+.note {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: rgb(255 255 255 / 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #dddada;
+
+    img {
+        border-radius: 10px;
+        width: 250px;
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid silver;
+        padding: 10px;
+        margin-right: 25px;
+    }
+  }
+}
