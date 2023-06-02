@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,SAAS,EAAE,IAAI;CAClB;;AACD,AAAA,cAAc,CAAC;EACX,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,QAAQ;EAChB,OAAO,EAAE,KAAK;CACjB;;AACD,AAAA,OAAO,CAAC;EACJ,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "youtube.component.scss"
+    ],
+    "names": [],
+    "file": "youtube.component.css"
+}
