@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { LoadingHandler } from './classes/loading-handler';
-import { GetDataService } from './services/get-data.service';
+import { LoadingHandler } from './core/classes/loading-handler';
+import { YouTube } from './shared/interfaces/you-tube';
+import { StackOverflow } from './shared/interfaces/stack-overflow';
+import { Google } from './shared/interfaces/google';
+import { GitHub } from './shared/interfaces/git-hub';
+import { GetDataService } from './core/services/get-data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +13,10 @@ import { GetDataService } from './services/get-data.service';
 })
 export class AppComponent {
   title = 'SearchApp';
-  youTubes:any;
-  stackOverflow:any;
-  gitHub:any;
-  google:any;
+  youTubes: YouTube[] = [];
+  stackOverflow: StackOverflow[] = [];
+  gitHub: GitHub[] = [];
+  google: Google[] =[];
 
   LoadingHandler = new LoadingHandler();
 
@@ -20,32 +24,33 @@ export class AppComponent {
   constructor(private getDataService: GetDataService) { }
 
 
-  searchYouTube(value: any): void {
+  searchYouTube(value: string): void {
     this.LoadingHandler.start();
     this.getDataService.searchYouTube(value).subscribe( (data) => {
       this.LoadingHandler.finish();
       (this.youTubes = data.items)
+      console.log(this.youTubes)
     })
   }
 
-  searchStackOverflow(value: any): void {
+  searchStackOverflow(value: string): void {
     this.getDataService.searchStackOverflow(value).subscribe((data) => {
-      console.log(data);
-     (this.stackOverflow = data.items)
+      (this.stackOverflow = data.items)
+      console.log('StackOverflow Data', this.stackOverflow);
     })
   }
 
-  searchGitHub(value: any): void {
+  searchGitHub(value: string): void {
     this.getDataService.searchGitHub(value).subscribe((data) => {
-      console.log(data);
       (this.gitHub = data.items)
+      console.log('GITHUB DATA',this.gitHub);
     })
   }
 
-  searchGoogle(value: any): void {
+  searchGoogle(value: string): void {
     this.getDataService.searchGoogle(value).subscribe((data) => {
-      console.log(data);
       (this.google = data.items)
+      console.log('Google', this.google);
     })
   }
 }

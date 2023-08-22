@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Google } from 'src/app/shared/interfaces/google';
 
 @Component({
   selector: 'app-google',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GoogleComponent implements OnInit {
 
-  @Input() searchedValue:any;
+  @Input() searchedValue: Google[] =[];
   @Input() loader:any;
   
   constructor() { }

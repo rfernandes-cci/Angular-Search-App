@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GithubComponent } from './components/github/github.component';
-import { YoutubeComponent } from './components/youtube/youtube.component';
-import { GoogleComponent } from './components/google/google.component';
-import { StackoverflowComponent } from './components/stackoverflow/stackoverflow.component';
-import { TwitterComponent } from './components/twitter/twitter.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GithubComponent } from './shared/components/github/github.component';
+import { YoutubeComponent } from './shared/components/youtube/youtube.component';
+import { GoogleComponent } from './shared/components/google/google.component';
+import { StackoverflowComponent } from './shared/components/stackoverflow/stackoverflow.component';
+import { TwitterComponent } from './shared/components/twitter/twitter.component';
 
 @NgModule({
   declarations: [

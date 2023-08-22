@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { StackOverflow } from 'src/app/shared/interfaces/stack-overflow';
 
 @Component({
   selector: 'app-stackoverflow',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StackoverflowComponent implements OnInit {
 
-  @Input() searchedValue:any
+  @Input() searchedValue:StackOverflow[] = [];
   @Input() loader:any;
   
   constructor() { }

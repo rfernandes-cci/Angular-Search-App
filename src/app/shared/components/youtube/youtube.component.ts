@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { YouTube } from 'src/app/shared/interfaces/you-tube';
 
 @Component({
   selector: 'app-youtube',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class YoutubeComponent implements OnInit {
 
-  @Input() searchedValue:any
+  @Input() searchedValue:YouTube[] = [];
   @Input() loader:any;
   
   constructor() { }

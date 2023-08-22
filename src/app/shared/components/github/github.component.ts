@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GitHub } from 'src/app/shared/interfaces/git-hub';
+import { Loader } from 'src/app/shared/interfaces/loader';
 
 @Component({
   selector: 'app-github',
@@ -7,8 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GithubComponent implements OnInit {
 
-  @Input() searchedValue: any;
-  @Input() loader:any;
+  @Input() searchedValue: GitHub[] = [];
+  @Input() loader!: Loader;
   
   constructor() { }
 
