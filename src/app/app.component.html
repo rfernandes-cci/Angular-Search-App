@@ -1,64 +1,61 @@
 <router-outlet>
-  <div class="img-banner">
-    <div class="container position-relative h-100 d-flex align-items-center justify-content-center">
-      <form (ngSubmit)="searchYouTube(searchBox.value);
-      searchStackOverflow(searchBox.value);
-      searchGitHub(searchBox.value);
-      searchGoogle(searchBox.value)" novalidate>
-        <h1 class="text-white font-weight-bold">Search something to see the result</h1>
-        <div class="input-group my-4">
-          <input type="text" placeholder="Search" class="form-control" #searchBox autocomplete="off" name=""
-            placeholder="Search something">
-          <div class="search-icon">
-            <i class="bi bi-search" (click)="searchYouTube(searchBox.value);
-            searchStackOverflow(searchBox.value);
-            searchGitHub(searchBox.value);
-            searchGoogle(searchBox.value)"></i>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+
+  <!-- Search Component -->
+  <app-search (searchPerformed)="performSearch($event)"></app-search>
+
+  <!-- Tabs -->
   <div class="container my-5 px-0 bg-white">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <!-- Tab: YouTube -->
       <li class="nav-item" role="presentation">
         <a class="nav-link active" id="youtube-tab" data-toggle="tab" href="#youtube" role="tab" aria-controls="youtube"
           aria-selected="true">youtube</a>
       </li>
+      <!-- Tab: StackOverflow -->
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="stackoverflow-tab" data-toggle="tab" href="#stackoverflow" role="tab"
           aria-controls="stackoverflow" aria-selected="false">stackoverflow</a>
       </li>
+      <!-- Tab: GitHub -->
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="gitHub-tab" data-toggle="tab" href="#gitHub" role="tab" aria-controls="gitHub"
           aria-selected="false">gitHub</a>
       </li>
+      <!-- Tab: Google -->
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="google-tab" data-toggle="tab" href="#google" role="tab" aria-controls="google"
           aria-selected="false">google</a>
       </li>
+      <!-- Tab: Twitter -->
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="twitter-tab" data-toggle="tab" href="#twitter" role="tab" aria-controls="twitter"
           aria-selected="false">twitter</a>
       </li>
     </ul>
+
+    <!-- TabContent -->
     <div class="tab-content" id="myTabContent">
+      <!-- TabContent: YouTube -->
       <div class="tab-pane fade show active" id="youtube" role="tabpanel" aria-labelledby="youtube-tab">
         <app-youtube [searchedValue]="youTubes" [loader]="LoadingHandler"></app-youtube>
       </div>
+      <!-- TabContent: StackOverflow -->
       <div class="tab-pane fade" id="stackoverflow" role="tabpanel" aria-labelledby="stackoverflow-tab">
         <app-stackoverflow [searchedValue]="stackOverflow" [loader]="LoadingHandler"></app-stackoverflow>
       </div>
+      <!-- TabContent: GitHub -->
       <div class="tab-pane fade" id="gitHub" role="tabpanel" aria-labelledby="gitHub-tab">
         <app-github [searchedValue]="gitHub" [loader]="LoadingHandler"></app-github>
-
       </div>
+      <!-- TabContent: Google -->
       <div class="tab-pane fade" id="google" role="tabpanel" aria-labelledby="google-tab">
         <app-google [searchedValue]="google" [loader]="LoadingHandler"></app-google>
       </div>
+      <!-- TabContent: Twitter -->
       <div class="tab-pane fade" id="twitter" role="tabpanel" aria-labelledby="twitter-tab">
         <app-twitter></app-twitter>
       </div>
     </div>
   </div>
+  
 </router-outlet>

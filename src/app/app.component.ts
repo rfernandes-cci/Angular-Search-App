@@ -12,7 +12,6 @@ import { GetDataService } from './core/services/get-data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'SearchApp';
   youTubes: YouTube[] = [];
   stackOverflow: StackOverflow[] = [];
   gitHub: GitHub[] = [];
@@ -20,37 +19,44 @@ export class AppComponent {
 
   LoadingHandler = new LoadingHandler();
 
-
   constructor(private getDataService: GetDataService) { }
 
+  // Performs Search On Each Platform
+  performSearch(searchValue: string) {
+    this.searchYouTube(searchValue);
+    this.searchStackOverflow(searchValue);
+    this.searchGitHub(searchValue);
+    this.searchGoogle(searchValue);  
+  }
 
+  // Search YouTube Function
   searchYouTube(value: string): void {
     this.LoadingHandler.start();
     this.getDataService.searchYouTube(value).subscribe( (data) => {
       this.LoadingHandler.finish();
       (this.youTubes = data.items)
-      console.log(this.youTubes)
     })
   }
 
+  // Search StackOverflow Function
   searchStackOverflow(value: string): void {
     this.getDataService.searchStackOverflow(value).subscribe((data) => {
       (this.stackOverflow = data.items)
-      console.log('StackOverflow Data', this.stackOverflow);
     })
   }
 
+  // Search GitHub Function
   searchGitHub(value: string): void {
     this.getDataService.searchGitHub(value).subscribe((data) => {
       (this.gitHub = data.items)
-      console.log('GITHUB DATA',this.gitHub);
     })
   }
 
+  // Search Google Function
   searchGoogle(value: string): void {
     this.getDataService.searchGoogle(value).subscribe((data) => {
       (this.google = data.items)
-      console.log('Google', this.google);
     })
   }
+
 }

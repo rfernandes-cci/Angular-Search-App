@@ -6,27 +6,19 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GithubComponent } from './shared/components/github/github.component';
-import { YoutubeComponent } from './shared/components/youtube/youtube.component';
-import { GoogleComponent } from './shared/components/google/google.component';
-import { StackoverflowComponent } from './shared/components/stackoverflow/stackoverflow.component';
-import { TwitterComponent } from './shared/components/twitter/twitter.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GithubComponent,
-    YoutubeComponent,
-    GoogleComponent,
-    StackoverflowComponent,
-    TwitterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

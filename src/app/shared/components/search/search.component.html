@@ -1,0 +1,14 @@
+<div class="img-banner">
+    <div class="container position-relative h-100 d-flex align-items-center justify-content-center">
+      <form (ngSubmit)="performSearch()" novalidate>
+        <h1 class="text-white font-weight-bold">Search something to see the result</h1>
+        <div class="input-group my-4">
+          <input type="text" placeholder="Search" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{ standalone: true }"autocomplete="off"
+            placeholder="Search something">
+          <div class="search-icon">
+            <i class="bi bi-search" (click)="performSearch()"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
