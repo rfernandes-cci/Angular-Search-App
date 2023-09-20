@@ -6,11 +6,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+  searchValue: string = '';
+  birthday = new Date(1995, 10, 17);
 
-  searchValue:string = '';
-
-  @Output() searchPerformed:EventEmitter<string> = new EventEmitter<string>();
-
+  @Output() searchPerformed:EventEmitter<string> = new EventEmitter;
+  
   performSearch() {
     this.searchPerformed.emit(this.searchValue);
   }

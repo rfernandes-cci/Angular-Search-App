@@ -2,17 +2,15 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import Constants from "src/app/core/constants/constants";
-
 export const environment = {
   production: false,
-  youTube_Base_Url: Constants.YOUTUBE_BASE_URL,
-  youTube_API_key: Constants.YOUTUBE_API_KEY,
-  stackOverflow_Base_Url: Constants.STACKOVERFLOW_BASE_URL,
-  gitHub_Base_Url: Constants.GITHUB_BASE_URL,
-  google_API_key: Constants.GOOGLE_API_KEY,
-  google_Cx_ID: Constants.GOOGLE_CX_ID,
-  google_Base_Url: Constants.GOOGLE_BASE_URL
+  youTube_Base_Url: 'https://www.googleapis.com/youtube/v3/search',
+  youTube_API_key: 'AIzaSyCTq-A9upHJ-MzPTNn2aTcU8vNDUgzv8Ek',
+  stackOverflow_Base_Url: 'https://api.stackexchange.com/2.3/search/advanced',
+  gitHub_Base_Url: 'https://api.github.com/search/repositories',
+  google_API_key: 'AIzaSyD29GeMf6lc8xAvZyRzfAMK7do_VjoDKgQ',
+  google_Cx_ID: '10763f52e12cd47de',
+  google_Base_Url: 'https://www.googleapis.com/customsearch/v1'
 };
 
 /*

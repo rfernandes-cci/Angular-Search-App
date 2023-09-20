@@ -1,11 +1,13 @@
+import { environment } from "src/environments/environment";
+
 const Constants = {
-    YOUTUBE_BASE_URL:  'https://www.googleapis.com/youtube/v3/search',
-    YOUTUBE_API_KEY: 'AIzaSyCTq-A9upHJ-MzPTNn2aTcU8vNDUgzv8Ek',
-    STACKOVERFLOW_BASE_URL:  'https://api.stackexchange.com/2.3/search/advanced',
-    GITHUB_BASE_URL:  'https://api.github.com/search/repositories',
-    GOOGLE_API_KEY: 'AIzaSyD29GeMf6lc8xAvZyRzfAMK7do_VjoDKgQ',
-    GOOGLE_CX_ID: '10763f52e12cd47de',
-    GOOGLE_BASE_URL: 'https://www.googleapis.com/customsearch/v1'
+    YOUTUBE_BASE_URL:  environment.youTube_Base_Url,
+    YOUTUBE_API_KEY: environment.youTube_API_key,
+    STACKOVERFLOW_BASE_URL:  environment.stackOverflow_Base_Url,
+    GITHUB_BASE_URL:  environment.gitHub_Base_Url,
+    GOOGLE_API_KEY: environment.google_API_key,
+    GOOGLE_CX_ID: environment.google_Cx_ID,
+    GOOGLE_BASE_URL: environment.google_Base_Url
 }
 
 export default Constants;
