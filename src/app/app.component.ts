@@ -4,7 +4,10 @@ import { YouTube } from './shared/interfaces/you-tube';
 import { StackOverflow } from './shared/interfaces/stack-overflow';
 import { Google } from './shared/interfaces/google';
 import { GitHub } from './shared/interfaces/git-hub';
-import { GetDataService } from './core/services/get-data.service';
+import { YoutubeDataService } from './core/services/youtube-data.service';
+import { GithubDataService } from './core/services/github-data.service';
+import { StackoverflowDataService } from './core/services/stackoverflow-data.service';
+import { GoogleDataService } from './core/services/google-data.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,10 @@ export class AppComponent {
 
   LoadingHandler = new LoadingHandler();
 
-  constructor(private getDataService: GetDataService) { }
+  constructor(private youtubeDataService: YoutubeDataService,
+    private githubDataService: GithubDataService,
+    private stackoverflowDataService: StackoverflowDataService,
+    private googleDataService: GoogleDataService) { }
 
   // Performs Search On Each Platform
   performSearch(searchValue: string) {
@@ -32,30 +38,30 @@ export class AppComponent {
   // Search YouTube Function
   searchYouTube(value: string): void {
     this.LoadingHandler.start();
-    this.getDataService.searchYouTube(value).subscribe( (data) => {
+    this.youtubeDataService.searchYouTube(value).subscribe( (data) => {
       this.LoadingHandler.finish();
-      (this.youTubes = data.items)
+      (this.youTubes = data)
     })
   }
 
   // Search StackOverflow Function
   searchStackOverflow(value: string): void {
-    this.getDataService.searchStackOverflow(value).subscribe((data) => {
-      (this.stackOverflow = data.items)
+    this.stackoverflowDataService.searchStackOverflow(value).subscribe((data) => {
+      (this.stackOverflow = data)
     })
   }
 
   // Search GitHub Function
   searchGitHub(value: string): void {
-    this.getDataService.searchGitHub(value).subscribe((data) => {
-      (this.gitHub = data.items)
+    this.githubDataService.searchGitHub(value).subscribe((data) => {
+      (this.gitHub = data)
     })
   }
 
   // Search Google Function
   searchGoogle(value: string): void {
-    this.getDataService.searchGoogle(value).subscribe((data) => {
-      (this.google = data.items)
+    this.googleDataService.searchGoogle(value).subscribe((data) => {
+      (this.google = data)
     })
   }
 

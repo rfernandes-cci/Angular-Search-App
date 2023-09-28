@@ -1,6 +1,7 @@
 export interface YouTube {
+
     snippet: {
-        title: boolean,
+        title: string,
         channelTitle: string,
         description: string,
         thumbnails: {

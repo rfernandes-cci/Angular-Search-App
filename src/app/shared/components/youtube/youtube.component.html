@@ -6,7 +6,7 @@
         <span>Search</span> Results:
         <span class="note" *ngIf="!searchedValue">search in the above box to see something</span>
     </h2>
-    <ul class="list">
+    <ul class="list" *ngIf="searchedValue">
         <li *ngFor="let youtube of searchedValue" class="d-flex">
             <img src="{{youtube.snippet.thumbnails.medium.url}}">
             <div>
