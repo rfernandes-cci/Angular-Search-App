@@ -81,4 +81,15 @@ export class AppComponent {
     })
   }
 
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((queryParams) => {
+      const searchQuery = queryParams['q'];
+      if (!searchQuery) {
+        // If no search query is found, navigate to the empty URL
+        this.router.navigate(['']);
+      }
+    });
+  }
+  
+
 }
