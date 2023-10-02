@@ -8,6 +8,7 @@ import { YoutubeDataService } from './core/services/youtube-data.service';
 import { GithubDataService } from './core/services/github-data.service';
 import { StackoverflowDataService } from './core/services/stackoverflow-data.service';
 import { GoogleDataService } from './core/services/google-data.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,9 @@ export class AppComponent {
   constructor(private youtubeDataService: YoutubeDataService,
     private githubDataService: GithubDataService,
     private stackoverflowDataService: StackoverflowDataService,
-    private googleDataService: GoogleDataService) { }
+    private googleDataService: GoogleDataService,
+    private router: Router,
+    private route: ActivatedRoute,) { }
 
   // Performs Search On Each Platform
   performSearch(searchValue: string) {
@@ -33,6 +36,17 @@ export class AppComponent {
     this.searchStackOverflow(searchValue);
     this.searchGitHub(searchValue);
     this.searchGoogle(searchValue);  
+
+    if (searchValue) {
+      // If searchValue is provided, navigate to 'search' route with the search query
+      const encodedSearchValue = encodeURIComponent(searchValue);
+      this.router.navigate(['/search'], {
+        queryParams: { q: encodedSearchValue }
+      });
+    } else {
+      // If searchValue is empty, navigate to the empty URL
+      this.router.navigate(['']);
+    }
   }
 
   // Search YouTube Function

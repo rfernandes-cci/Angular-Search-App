@@ -3,7 +3,7 @@
       <form (ngSubmit)="performSearch()" novalidate>
         <h1 class="text-white font-weight-bold">Search something to see the result</h1>
         <div class="input-group my-4">
-          <input type="text" placeholder="Search" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{ standalone: true }"autocomplete="off"
+          <input type="text" placeholder="Search" class="form-control" [(ngModel)]="searchValue" [value]="searchValueFromQueryParams" [ngModelOptions]="{ standalone: true }"autocomplete="off"
             placeholder="Search something">
           <div class="search-icon">
             <i class="bi bi-search" (click)="performSearch()"></i>
