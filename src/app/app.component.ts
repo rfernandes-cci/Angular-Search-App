@@ -32,20 +32,22 @@ export class AppComponent {
 
   // Performs Search On Each Platform
   performSearch(searchValue: string) {
-    this.searchYouTube(searchValue);
-    this.searchStackOverflow(searchValue);
-    this.searchGitHub(searchValue);
-    this.searchGoogle(searchValue);  
-
-    if (searchValue) {
+   
+    if (!searchValue) {
+      // If searchValue is empty, navigate to the empty URL
+      this.router.navigate(['']);
+      return alert('Enter some value in the search box')
+    } else {
       // If searchValue is provided, navigate to 'search' route with the search query
       const encodedSearchValue = encodeURIComponent(searchValue);
       this.router.navigate(['/search'], {
         queryParams: { q: encodedSearchValue }
       });
-    } else {
-      // If searchValue is empty, navigate to the empty URL
-      this.router.navigate(['']);
+
+      this.searchYouTube(searchValue);
+      this.searchStackOverflow(searchValue);
+      this.searchGitHub(searchValue);
+      this.searchGoogle(searchValue); 
     }
   }
 
